@@ -18,7 +18,7 @@
         echo "<td>{$contactInfos[0]}</td>";
         echo "<td>{$contactInfos[1]}</td>";
         echo "<td>{$contactInfos[2]}</td>";
-        echo '<td class="d-block me-auto"><button class="btn btn-primary btn-sm me-2">Editar</button><button class="btn btn-danger btn-sm">Excluir</button></td>';
+        echo '<td class="d-block me-auto"><a href="/edit?id=' . $i . '" class="btn btn-primary btn-sm me-2">Editar</a><a href="/delete?id=' . $i . '" class="btn btn-danger btn-sm">Excluir</a></td>';
         echo "</tr>";
       }
       ?>

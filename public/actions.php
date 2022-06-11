@@ -33,3 +33,20 @@ function search(): void
 {
   include "./components/search.php";
 }
+
+function delete(): void
+{
+  $filePath = './data/data.csv';
+  $contacts = file($filePath);
+  unset($contacts[$_GET['id']]);
+  unlink($filePath);
+
+  $newFile = fopen($filePath, "a+");
+  foreach ($contacts as $contact) {
+    fwrite($newFile, $contact);
+  }
+  fclose($newFile);
+
+  $message = "Contato excluído com sucesso!";
+  include "./components/message.php";
+}

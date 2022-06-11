@@ -7,5 +7,7 @@ match ($url[0]) {
   "/listar" => listAll(),
   "/cadastrar" => register(),
   "/buscar" => search(),
+  "/edit" => search(),
+  "/delete" => delete(),
   default => notFound(),
 };
