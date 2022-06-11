@@ -12,6 +12,7 @@ function notFound(): void
 
 function listAll(): void
 {
+  $contacts = file('./data/data.csv');
   include "./components/list.php";
 }
 
@@ -23,7 +24,6 @@ function register(): void
     fclose($file);
     $message = "Contato registrado com sucesso!";
     include "./components/message.php";
-    include "./components/list.php";
   } else {
     include "./components/register.php";
   }
