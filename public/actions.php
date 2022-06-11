@@ -17,7 +17,16 @@ function listAll(): void
 
 function register(): void
 {
-  include "./components/register.php";
+  if ($_POST) {
+    $file = fopen('./data/data.csv', 'a+');
+    fwrite($file, "{$_POST["name"]},{$_POST["email"]},{$_POST["phone"]}" . PHP_EOL);
+    fclose($file);
+    $message = "Contato registrado com sucesso!";
+    include "./components/message.php";
+    include "./components/list.php";
+  } else {
+    include "./components/register.php";
+  }
 }
 
 function search(): void
