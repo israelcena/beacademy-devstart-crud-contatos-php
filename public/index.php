@@ -1,2 +1,4 @@
 <?php
-echo "Hello World!";
+include "./components/header.php";
+include "./components/main.php";
+include "./components/footer.php";
