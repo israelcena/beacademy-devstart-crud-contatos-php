@@ -50,3 +50,26 @@ function delete(): void
   $message = "Contato excluído com sucesso!";
   include "./components/message.php";
 }
+
+function edit(): void
+{
+  $filePath = './data/data.csv';
+  $contacts = file($filePath);
+  $contactToEdit = explode(",", $contacts[$_GET['id']]);
+
+  if ($_POST) {
+    $contacts[$_GET['id']] = "{$_POST["name"]},{$_POST["email"]},{$_POST["phone"]}" . PHP_EOL;
+    unlink($filePath);
+
+    $newFile = fopen($filePath, "a+");
+    foreach ($contacts as $contact) {
+      fwrite($newFile, $contact);
+    }
+    fclose($newFile);
+
+    $message = "Contato editado com sucesso!";
+    include "./components/message.php";
+  } else {
+    include "./components/edit.php";
+  }
+}
