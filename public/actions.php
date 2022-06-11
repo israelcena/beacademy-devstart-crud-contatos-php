@@ -31,6 +31,7 @@ function register(): void
 
 function search(): void
 {
+  $contacts = file('./data/data.csv');
   include "./components/search.php";
 }
 
