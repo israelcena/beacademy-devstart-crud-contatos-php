@@ -1,7 +1,8 @@
 <?php
 $url = explode("?", $_SERVER['REQUEST_URI']);
+include "./actions.php";
 
 match ($url[0]) {
-  "/" => include "./components/main.php",
-  default => include "./components/404.php",
+  "/" => home(),
+  default => notFound(),
 };
